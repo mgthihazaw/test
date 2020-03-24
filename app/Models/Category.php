@@ -30,7 +30,14 @@ class Category extends Model
         return $this->belongsTo(Category::class, 'parent_id');
     }
     public function children()
-{
-    return $this->hasMany(Category::class, 'parent_id');
-}
+    {
+        return $this->hasMany(Category::class, 'parent_id');
+    }
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'product_categories', 'category_id', 'product_id');
+    }
 }
