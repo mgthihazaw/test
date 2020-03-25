@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AuthRequest;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -36,7 +37,7 @@ class LoginController extends Controller
     }
     public function login(Request $request)
     {
-        $this->validate($request, [
+         $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required|min:6',
         ]);

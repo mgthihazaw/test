@@ -9,11 +9,11 @@ use App\Repositories\BrandRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
-    protected $repositories = [
+    // protected $repositories = [
 
        
-        BrandContract::class            =>          BrandRepository::class,
-    ];
+    //     BrandContract::class            =>          BrandRepository::class,
+    // ];
     /**
      * Register any application services.
      *

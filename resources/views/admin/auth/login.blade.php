@@ -7,6 +7,11 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('backend/css/main.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('backend/css/font-awesome/4.7.0/css/font-awesome.min.css') }}"/>
     <title>Login - {{ config('app.name') }}</title>
+    <style>
+        .error-message{
+            color:red;
+        }
+    </style>
 </head>
 <body>
 <section class="material-half-bg">
@@ -23,10 +28,16 @@
             <div class="form-group">
                 <label class="control-label" for="email">Email Address</label>
                 <input class="form-control" type="email" id="email" name="email" placeholder="Email address" autofocus value="{{ old('email') }}">
+                @error('email')
+            <span class="error-message">{{ $message }}</span>
+                @enderror
             </div>
             <div class="form-group">
                 <label class="control-label" for="password">Password</label>
                 <input class="form-control" type="password" id="password" name="password" placeholder="Password">
+                @error('password')
+                <span class="error-message">{{ $message }}</span>
+                @enderror
             </div>
             <div class="form-group">
                 <div class="utility">
@@ -40,6 +51,8 @@
             <div class="form-group btn-container">
                 <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-sign-in fa-lg fa-fw"></i>SIGN IN</button>
             </div>
+             
+             
         </form>
     </div>
 </section>
